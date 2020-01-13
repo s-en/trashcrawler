@@ -159,6 +159,7 @@ module.exports.block = function(addrStr) {
   return res;
 }
 module.exports.day = function (dayStr) {
+  if(!dayStr)return [];
   const day = dayStr;
   const res = [];
   // 第xx 

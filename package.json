@@ -19,6 +19,8 @@
   "dependencies": {
     "jaconv": "^1.0.4",
     "node-fetch": "^2.6.0",
-    "pdfjs-dist": "^2.2.228"
+    "pdfjs-dist": "^2.2.228",
+    "request": "^2.88.0",
+    "tabletojson": "^1.1.1"
   }
 }

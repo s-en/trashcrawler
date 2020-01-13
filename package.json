@@ -1,0 +1,25 @@
+{
+  "name": "trashcrawler",
+  "version": "1.0.0",
+  "description": "各市町村の公式サイトからゴミ収集の日付を収集します",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-en/trashcrawler.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s-en/trashcrawler/issues"
+  },
+  "homepage": "https://github.com/s-en/trashcrawler#readme",
+  "dependencies": {
+    "jaconv": "^1.0.4",
+    "node-fetch": "^2.6.0",
+    "pdfjs-dist": "^2.2.228",
+    "pegjs": "^0.10.0"
+  }
+}

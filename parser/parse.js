@@ -57,6 +57,10 @@ module.exports.address = function(addrStr){
     if(str[1] && str[1].indexOf('奇数') >= 0){
       range.push('odd');
     }
+    // xx以外
+    if(str[1] && str[1].indexOf('以外') >= 0){
+      range.push('other');
+    }
     //console.log(range);
     // 種別判定
     let type = '';
@@ -194,6 +198,31 @@ module.exports.merge = function (obj1, obj2) {
     }
   }
   return obj1;
+}
+module.exports.mergeEach = function (res, schedule, town, chou, ban, gou) {
+  res[town] = res[town] || {};
+  if(!chou){
+    res[town]['other'] = schedule;
+    return;
+  }
+  for(const c of chou){
+    res[town][c] = res[town][c] || {};
+    if(!ban){
+      res[town][c]['other'] = schedule;
+      continue;
+    }
+    for(const b of ban){
+      res[town][c][b] = res[town][c][b] || {};
+      if(!gou){
+        res[town][c][b]['other'] = schedule;
+        continue;
+      }
+      for(const g of gou){
+        res[town][c][b][g] = schedule;
+      }
+    }
+  }
+  return res;
 }
 
 module.exports.assignVal = function(o, val){

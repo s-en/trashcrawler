@@ -3,6 +3,7 @@ const pdf = require('./crawler/pdf.js');
 const htmltable = require('./crawler/htmltable.js');
 const jconv = require('jaconv');
 const fs = require('fs');
+const beautify = require("json-beautify");
 
 (async () => {
   const calendar = {};
@@ -10,7 +11,7 @@ const fs = require('fs');
     for (const shi in bunbetsu[ken]) {
       const urls = bunbetsu[ken][shi];
       if (urls.length === 0) continue;
-      if(shi !== '中央区')continue;
+      //if(shi !== '中央区')continue;
       console.log(`${ken} ${shi}`);
       let table = [];
       // pdfファイル取得&json変換
@@ -60,7 +61,7 @@ const fs = require('fs');
       }
       // 取得データを保存
       await fs.promises.mkdir(`${__dirname}\\rawdata\\${ken}`, { recursive: true }).catch(console.error);
-      await fs.writeFileSync(`${__dirname}\\rawdata\\${ken}\\${shi}.json`, JSON.stringify(table).replace(/\],/g,'],\n').replace(/\},/g,'},\n'));
+      await fs.writeFileSync(`${__dirname}\\rawdata\\${ken}\\${shi}.json`, beautify(table, null, 2, 100));
       // 市町村ごとにパース
       const parser = require(`./parser/${ken}/${shi}.js`);
       const res = parser.parse(table);
@@ -69,7 +70,7 @@ const fs = require('fs');
       calendar[ken][shi] = res;
     }
   }
-  await fs.writeFileSync(`${__dirname}\\calendar.json`, JSON.stringify(calendar,null,'  '));
+  await fs.writeFileSync(`${__dirname}\\calendar.json`, beautify(calendar, null, 2, 120));
 })();
 
 

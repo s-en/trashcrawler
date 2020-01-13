@@ -2,6 +2,8 @@ const numReg = `[0-9]+|の?偶数|の?奇数`;
 const townReg = new RegExp(`^(.+?)($|${numReg}([~･]${numReg}[丁番])*)`);
 const addrReg = new RegExp(`^･?(${numReg})([丁番号][目地]?)?(~(${numReg})([丁番号]?[目地]?))?|(･(${numReg})([丁番号]?[目地]?))?`);
 
+const DAYS = ['月','火','水','木','金','土','日'];
+
 module.exports.address = function(addrStr){
   const res = {};
   let addr = addrStr;
@@ -163,7 +165,7 @@ module.exports.day = function (dayStr) {
   const day = dayStr;
   const res = [];
   // 第xx 
-  let reg = /第(\d)･*第*(\d)*[ \n]*([月火水木金土日])[曜]*/;
+  let reg = /第(\d)･*第*(\d)*[ \n]*([月火水木金土日])[曜日?]?/;
   let d = day.match(reg);
   if(d){
     if(d[3]){
@@ -174,12 +176,31 @@ module.exports.day = function (dayStr) {
     }
     return res;
   }
-  // 複数曜日
-  reg = /([月火水木金土日])[曜]*[ ･\n]*([月火水木金土日])*[曜]*/;
-  d = day.match(reg);
-  if(d){
-    res.push({day: d[1]});
-    if(d[2])res.push({day: d[2]});
+  
+  // 範囲
+  let ds = day.split('~');
+  if(ds.length === 2){
+    const start = DAYS.findIndex(d => ds[0].indexOf(d) >= 0);
+    const end = DAYS.findIndex(d => ds[1].indexOf(d) >= 0);
+    if(start >= 0 && end >= 0){
+      let max = end;
+      if(end < start)max = start + (7 - end);
+      for(let i=start;i<=max; i++){
+        const dn = i%7;
+        res.push({day: DAYS[dn]});
+      }
+    }
+  }else{
+    // 複数曜日
+    reg = /([月火水木金土日])(曜日|曜)?/g;
+    ds = day.match(reg);
+    if(ds){
+      for(d of ds){
+        reg = /([月火水木金土日])?/;
+        d = d.match(reg);
+        if(d)res.push({day: d[1]});
+      }
+    }
   }
   return res;
 }

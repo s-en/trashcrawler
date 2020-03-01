@@ -1,6 +1,6 @@
 const numReg = `[0-9]+|の?偶数|の?奇数`;
-const townReg = new RegExp(`^(.+?)($|${numReg}([~･]${numReg}[丁番])*)`);
-const addrReg = new RegExp(`^･?(${numReg})([丁番号][目地]?)?(~(${numReg})([丁番号]?[目地]?))?|(･(${numReg})([丁番号]?[目地]?))?`);
+const townReg = new RegExp(`^(.+?)($|[( ]|(${numReg})([~･,](${numReg}))*[丁番])`);
+const addrReg = new RegExp(`^[･,()]?(${numReg})([丁番号][目地]?)?(~(${numReg})([丁番号]?[目地]?))?|([･,](${numReg})([丁番号]?[目地]?))?`);
 
 const DAYS = ['月','火','水','木','金','土','日'];
 
@@ -10,6 +10,8 @@ module.exports.address = function(addrStr){
   if(!addr || addr.length === 0){
     return false;
   }
+  // 不要な文字を削除
+  addr = addr.replace(/ /g, '').replace(/\n/g, '').replace('全域', '').replace(/\(.*以外\)/g, '').replace(/[上下]記以外の?(地域)?/, '');
   let town = '';
   let chou = [];
   let ban = [];
@@ -77,9 +79,9 @@ module.exports.address = function(addrStr){
     addr = addr.replace(str[0], '').trim();
     // 種類ごとに処理
     if(type === 'chou'){
+      chou=[];
       if(type !== prevType){
         // 違うタイプに切り替わった場合、今までの累計番号を消す
-        chou=[];
         ban=[];
       }
       for(const n of range){
@@ -92,6 +94,7 @@ module.exports.address = function(addrStr){
         chou = ['other'];
         res[town]['other'] = res[town]['other'] || {};
       }
+      ban = [];
       for(const c of chou){
         for(const n of range){
           res[town][c][n] = res[town][c][n] || {};
@@ -162,17 +165,37 @@ module.exports.block = function(addrStr) {
 }
 module.exports.day = function (dayStr) {
   if(!dayStr)return [];
-  const day = dayStr;
+  dayStr = dayStr.replace(/㈪/g,'月').replace(/㈫/g,'火').replace(/㈬/g,'水').replace(/㈭/g,'木').replace(/㈮/g,'金').replace(/㈯/g,'土').replace(/㈰/g,'日');
+  const day = dayStr.replace(/⾦/g,'金').replace(/⽇/g,'日').replace(/ /g, '').replace(/\\n/g, '');
   const res = [];
   // 第xx 
   let reg = /第(\d)･*第*(\d)*[ \n]*([月火水木金土日])[曜日?]?/;
   let d = day.match(reg);
   if(d){
     if(d[3]){
-      res.push({no: d[1], day: d[3]});
-      res.push({no: d[2], day: d[3]});
+      if(d[1])res.push({no: d[1], day: d[3]});
+      if(d[2])res.push({no: d[2], day: d[3]});
     }else{
       res.push({no: d[1], day: d[2]});
+    }
+    return res;
+  }
+  // 管路
+  reg = /管路/;
+  if(day.match(reg)){
+    return [{ day: '管路'}];
+  }
+
+  // ～回目の～曜日
+  reg = /((\d)回?目?)(･(\d)回目)?の?([月火水木金土日])[曜日?]?/;
+  d = day.match(reg);
+  if(d){
+    const n1 = d[2];
+    const n2 = d[4];
+    const you = d[5];
+    if(n1 && you){
+      res.push({no: n1, day: you});
+      res.push({no: n2, day: you});
     }
     return res;
   }

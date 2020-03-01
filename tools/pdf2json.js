@@ -1,12 +1,24 @@
 // modify from https://raw.githubusercontent.com/ronnywang/pdf-table-extractor/master/pdf-table-extractor.js
 // modify from https://github.com/mozilla/pdf.js/blob/master/examples/node/pdf2svg.js
-
-const PDFJS = require('pdfjs-dist');
+require("../lib/pdfjs/domstubs.js").setStubs(global);
+const PDFJS = require('../lib/pdfjs/build/pdf.js');//require('pdfjs-dist');
+// PDFJS.GlobalWorkerOptions.workerSrc = '../lib/pdfjs/build/pdf.worker.js';
+// PDFJS.cMapUrl = 'https://unpkg.com/pdfjs-dist@1.9.426/cmaps/';
+// PDFJS.cMapPacked = true;
 pdf_table_extractor_progress = function(result){
+    //console.log(result);
 };
 
-module.exports = function(doc){
-  var numPages = doc.numPages;
+lineWidth = 0;
+
+module.exports = function(doc, pageno){
+  var numPages = pageno;//doc.numPages;
+  if(pageno === 0){
+    numPages = [];
+    for(let i=1;i<=doc.numPages;i++){
+        numPages.push(i);
+    }
+  }
   var result = {};
   result.pageTables = [];
   result.numPages = numPages;
@@ -418,6 +430,14 @@ module.exports = function(doc){
                         table_pos[i][j] = null;
                     }
                 }
+                // sort
+                // content.items = content.items.sort((a,b) => {
+                //     const ax = a.transform[4];
+                //     const ay = a.transform[5];
+                //     const bx = b.transform[4];
+                //     const by = b.transform[5];
+                //     return (bx-ax) + (by-ay)*10000;
+                // });
                 while (item = content.items.shift()) {
                     x = item.transform[4];
                     y = item.transform[5];
@@ -473,7 +493,8 @@ module.exports = function(doc){
     });
   };
 
-  for (var i = 1; i <= numPages; i++) {
+  //for (var i = 1; i <= numPages; i++) {
+  for(let i of numPages){
     lastPromise = lastPromise.then(loadPage.bind(null, i));
   }
   return lastPromise.then(function(){

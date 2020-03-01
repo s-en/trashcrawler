@@ -162,12 +162,18 @@
    "中央区": [
      "https://www.city.chuo.lg.jp/smph/kurasi/gomi/wakekatadasikata/syuusyuuyoubi.html"
    ],
-   "港区": [],
-   "新宿区": [],
-   "文京区": [],
-   "台東区": [],
-   "墨田区": [],
-   "江東区": [],
+   "港区": [{
+     "url": "https://www.city.minato.tokyo.jp/gomigenryou/kurashi/gomi/kate/k-wakekata/documents/japguidebook.pdf",
+     "option": "{\"copy_text\":[\"v\"], \"pages\":\"2\", \"line_scale\":40, \"split_text\":True}"
+    }],
+   "新宿区": ["https://www.city.shinjuku.lg.jp/seikatsu/file09_01_00001.html"],
+   "文京区": ["https://www.city.bunkyo.lg.jp/var/rev0/0177/1452/01.hozonban-002.pdf"],
+   "台東区": ["http://www.city.taito.lg.jp/index/kurashi/gomi/wakekata/gomiinfo/shushubi/shushubi_zentai.html"],
+   "墨田区": [{
+     "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/31_nenkan.pdf",
+     "option": "{\"copy_text\":[\"v\"], \"pages\":\"1\", \"process_background\":False, \"line_scale\":40, \"split_text\":True}"
+    }],
+   "江東区": ["https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html"],
    "品川区": [
      "https://www.city.shinagawa.tokyo.jp/ct/other000084300/(a)tyoumeisyuusyuubiitiran2.pdf",
      "https://www.city.shinagawa.tokyo.jp/ct/other000084300/(ka)tyoumeisyuusyuubiitiran2.pdf",
@@ -177,20 +183,37 @@
      "https://www.city.shinagawa.tokyo.jp/ct/other000084300/(ma)tyoumeisyuusyuubiitiran2.pdf",
      "https://www.city.shinagawa.tokyo.jp/ct/other000084300/(ya)tyoumeibetusyuusyuubiitiran2.pdf"
    ],
-   "目黒区": [],
-   "大田区": [],
-   "世田谷区": [],
-   "渋谷区": [],
-   "中野区": [],
-   "杉並区": [],
-   "豊島区": [],
-   "北区": [],
-   "荒川区": [],
-   "板橋区": [],
-   "練馬区": [],
-   "足立区": [],
-   "葛飾区": [],
-   "江戸川区": [],
+   "目黒区": ["https://www.city.meguro.tokyo.jp/kurashi/shizen/gomi/youbiichiran.files/h28syuusyuuyoubi.pdf"],
+   "大田区": ["https://www.city.ota.tokyo.jp/seikatsu/gomi/shigentogomi/gomishigen.html"],
+   "世田谷区": ["https://www.city.setagaya.lg.jp/mokuji/kurashi/004/002/d00131841.html"],
+   "渋谷区": ["https://www.city.shibuya.tokyo.jp/kurashi/gomi/gomi/gomid.html"],
+   "中野区": ["https://www.city.tokyo-nakano.lg.jp/dept/473000/d001368.html"],
+   "杉並区": [{
+     "url": "https://www.city.suginami.tokyo.jp/_res/projects/default_project/_page_/001/020/025/2019shuushuuyoubi.pdf",
+     "option": "{\"copy_text\":[\"v\"], \"pages\":\"1,2\", \"process_background\":True, \"line_scale\":10, \"split_text\":False}"
+   }],
+   "豊島区": ["http://www.city.toshima.lg.jp/151/kurashi/gomi/shigen/documents/youbiichiran.pdf"],
+   "北区": [{
+     "url": "http://www.city.kita.tokyo.jp/r-seiso/kurashi/gomi/bunbetsu/documents/31wakekata.pdf",
+     "option": "{\"copy_text\":[\"v\"], \"pages\":\"2,3,4\", \"process_background\":True, \"line_scale\":40, \"split_text\":False}",
+     "type": "csv"
+   }],
+   "荒川区": ["https://www.city.arakawa.tokyo.jp/smph/kurashi/gomi/shushubi/syusyubi.html"],
+   "板橋区": ["http://www.city.itabashi.tokyo.jp/c_kurashi/096/096038.html"],
+   "練馬区": [
+     "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/a_gyochiiki.html",
+     "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/ka_gyochiiki.html",
+     "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/sa_gyochiiki.html",
+     "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/ta_gyochiiki.html",
+     "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/na_gyochiiki.html",
+     "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/ha_gyochiiki.html",
+     "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/maya_gyochiiki.html"
+   ],
+   "足立区": [{
+     "url": "https://www.city.adachi.tokyo.jp/documents/46178/hp.pdf"
+    }],
+   "葛飾区": ["http://www.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/019/998/310215-8.pdf"],
+   "江戸川区": ["https://www.city.edogawa.tokyo.jp/e025/kurashi/gomi_recycle/kategomi/yobihyo.html"],
    "八王子市": [],
    "立川市": [],
    "武蔵野市": [],

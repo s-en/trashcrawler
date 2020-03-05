@@ -11,7 +11,7 @@ module.exports.address = function(addrStr){
     return false;
   }
   // 不要な文字を削除
-  addr = addr.replace(/ /g, '').replace(/\n/g, '').replace('全域', '').replace(/\(.*以外\)/g, '').replace(/[上下]記以外の?(地域)?/, '');
+  addr = addr.replace(/ /g, '').replace(/\n/g, '').replace(/\\n/g, '').replace('全域', '').replace(/\(.*以外\)/g, '').replace(/[上下]記以外の?(地域)?/, '');
   let town = '';
   let chou = [];
   let ban = [];

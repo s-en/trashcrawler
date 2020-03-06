@@ -199,7 +199,7 @@
      "type": "csv"
    }],
    "荒川区": ["https://www.city.arakawa.tokyo.jp/smph/kurashi/gomi/shushubi/syusyubi.html"],
-   "板橋区": ["http://www.city.itabashi.tokyo.jp/c_kurashi/096/096038.html"],
+   "板橋区": ["https://www.city.itabashi.tokyo.jp/tetsuduki/gomi/kaishu/1001828.html"],
    "練馬区": [
      "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/a_gyochiiki.html",
      "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/ka_gyochiiki.html",
@@ -210,7 +210,7 @@
      "https://www.city.nerima.tokyo.jp/kurashi/gomi/wakekata/ichiran/maya_gyochiiki.html"
    ],
    "足立区": [{
-     "url": "https://www.city.adachi.tokyo.jp/documents/46178/hp.pdf"
+     "url": "https://www.city.adachi.tokyo.jp/documents/46174/hp.pdf"
     }],
    "葛飾区": ["http://www.city.katsushika.lg.jp/_res/projects/default_project/_page_/001/019/998/310215-8.pdf"],
    "江戸川区": ["https://www.city.edogawa.tokyo.jp/e025/kurashi/gomi_recycle/kategomi/yobihyo.html"],

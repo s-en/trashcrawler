@@ -1,3 +1,4 @@
+const jconv = require('jaconv');
 const numReg = `[0-9]+|の?偶数|の?奇数`;
 const townReg = new RegExp(`^(.+?)($|[( ]|(${numReg})([~･,](${numReg}))*[丁番])`);
 const addrReg = new RegExp(`^[･,()]?(${numReg})([丁番号][目地]?)?(~(${numReg})([丁番号]?[目地]?))?|([･,](${numReg})([丁番号]?[目地]?))?`);
@@ -20,7 +21,9 @@ module.exports.address = function(addrStr){
   let reg = townReg;
   let str = addr.match(reg);
   if(str && str[1]){
-    town = str[1];
+    // 全角変換
+    town = str[1].replace(/1/g, '一').replace(/2/g, '二').replace(/3/g, '三').replace(/4/g, '四').replace(/5/g, '五').replace(/6/g, '六').replace(/7/g, '七').replace(/8/g, '八').replace(/9/g, '九');
+    town = jconv.toZen(town);
     res[town] = res[town] || {};
     addr = addr.replace(str[1], '').trim();
   }

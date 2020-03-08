@@ -30,7 +30,7 @@ module.exports.parse = (table) => {
     const addr = parse.address(town+chou);
     const schedule = {};
     schedule['プラスチックごみ'] = parse.day(row[`${base+2}`]);
-    schedule['ペットボトル・ビン・缶・古紙ごみ'] = parse.day(row[`${base+3}`]);
+    schedule['資源ペットボトル・ビン・缶・古紙ごみ'] = parse.day(row[`${base+3}`]);
     schedule['可燃ごみ'] = parse.day(row[`${base+4}`]);
     schedule['不燃ごみ'] = parse.day(row[`${base+5}`]);
     let skip = 0;

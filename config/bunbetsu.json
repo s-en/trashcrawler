@@ -190,7 +190,7 @@
    "中野区": ["https://www.city.tokyo-nakano.lg.jp/dept/473000/d001368.html"],
    "杉並区": [{
      "url": "https://www.city.suginami.tokyo.jp/_res/projects/default_project/_page_/001/020/025/2019shuushuuyoubi.pdf",
-     "option": "{\"copy_text\":[\"v\"], \"pages\":\"1,2\", \"process_background\":True, \"line_scale\":10, \"split_text\":False}"
+     "option": "{\"copy_text\":[\"v\"], \"pages\":\"1,2\", \"line_scale\":10, \"split_text\":True}"
    }],
    "豊島区": ["http://www.city.toshima.lg.jp/151/kurashi/gomi/shigen/documents/youbiichiran.pdf"],
    "北区": [{

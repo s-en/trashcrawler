@@ -29,7 +29,7 @@ const convert = (str) => {
     for (const shi in bunbetsu[ken]) {
       const urls = bunbetsu[ken][shi];
       if (urls.length === 0) continue;
-      // if(shi !== '杉並区')continue;
+      // if(shi !== '墨田区')continue;
       console.log(`${ken} ${shi}`);
       let table = [];
       // pdfファイル取得&json変換

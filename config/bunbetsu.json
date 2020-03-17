@@ -170,7 +170,7 @@
    "文京区": ["https://www.city.bunkyo.lg.jp/var/rev0/0177/1452/01.hozonban-002.pdf"],
    "台東区": ["http://www.city.taito.lg.jp/index/kurashi/gomi/wakekata/gomiinfo/shushubi/shushubi_zentai.html"],
    "墨田区": [{
-     "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/31_nenkan.pdf",
+     "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/02_nenkan.pdf",
      "option": "{\"copy_text\":[\"v\"], \"pages\":\"1\", \"process_background\":False, \"line_scale\":40, \"split_text\":True}"
     }],
    "江東区": ["https://www.city.koto.lg.jp/388010/kurashi/gomi/kate/43735.html"],

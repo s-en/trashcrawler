@@ -12,7 +12,7 @@ module.exports.parse = (table) => {
       const schedule = {};
       schedule['資源ごみ'] = parse.day(row['1'].replace(/\\n| /g, ''));
       schedule['燃やすごみ'] = parse.day(row['2'].replace(/\\n| /g, ''));
-      schedule['燃やさないごみ'] = parse.day(row['3'].replace(/\\n| |･/g, ''));
+      schedule['燃やさないごみ'] = parse.day(row['3'].replace(/\\n| /g, ''));
       let skip = 0;
       for(const t in schedule){
         if(schedule[t].length === 0){

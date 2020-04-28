@@ -163,11 +163,11 @@
      "https://www.city.chuo.lg.jp/smph/kurasi/gomi/wakekatadasikata/syuusyuuyoubi.html"
    ],
    "港区": [{
-     "url": "https://www.city.minato.tokyo.jp/gomigenryou/kurashi/gomi/kate/k-wakekata/documents/japguidebook.pdf",
+     "url": "https://www.city.minato.tokyo.jp/gomigenryou/kurashi/gomi/kate/k-wakekata/documents/bunbetu2020jp.pdf",
      "option": "{\"copy_text\":[\"v\"], \"pages\":\"2\", \"line_scale\":40, \"split_text\":True}"
     }],
    "新宿区": ["https://www.city.shinjuku.lg.jp/seikatsu/file09_01_00001.html"],
-   "文京区": ["https://www.city.bunkyo.lg.jp/var/rev0/0177/1452/01.hozonban-002.pdf"],
+   "文京区": ["https://www.city.bunkyo.lg.jp/var/rev0/0195/9363/shuushuubiitirann.pdf"],
    "台東区": ["http://www.city.taito.lg.jp/index/kurashi/gomi/wakekata/gomiinfo/shushubi/shushubi_zentai.html"],
    "墨田区": [{
      "url": "https://www.city.sumida.lg.jp/kurashi/gomi_recycle/kateikei/gomi-calendar.files/02_nenkan.pdf",
@@ -189,12 +189,12 @@
    "渋谷区": ["https://www.city.shibuya.tokyo.jp/kurashi/gomi/gomi/gomid.html"],
    "中野区": ["https://www.city.tokyo-nakano.lg.jp/dept/473000/d001368.html"],
    "杉並区": [{
-     "url": "https://www.city.suginami.tokyo.jp/_res/projects/default_project/_page_/001/020/025/2019shuushuuyoubi.pdf",
+     "url": "https://www.city.suginami.tokyo.jp/_res/projects/default_project/_page_/001/020/025/2020shushuyoubi.pdf",
      "option": "{\"copy_text\":[\"v\"], \"pages\":\"1,2\", \"line_scale\":10, \"split_text\":True}"
    }],
    "豊島区": ["http://www.city.toshima.lg.jp/151/kurashi/gomi/shigen/documents/youbiichiran.pdf"],
    "北区": [{
-     "url": "http://www.city.kita.tokyo.jp/r-seiso/kurashi/gomi/bunbetsu/documents/31wakekata.pdf",
+     "url": "http://www.city.kita.tokyo.jp/r-seiso/kurashi/gomi/bunbetsu/documents/r2wakekata.pdf",
      "option": "{\"copy_text\":[\"v\"], \"pages\":\"2,3,4\", \"process_background\":True, \"line_scale\":40, \"split_text\":False}",
      "type": "csv"
    }],
